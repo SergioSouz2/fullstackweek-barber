@@ -5,6 +5,7 @@
   - You are about to drop the `BarberShop` table. If the table is not empty, all the data it contains will be lost.
   - Added the required column `babershopId` to the `Booking` table without a default value. This is not possible if the table is not empty.
   - Added the required column `status` to the `Booking` table without a default value. This is not possible if the table is not empty.
+  - Added the required column `imageUrl` to the `Service` table without a default value. This is not possible if the table is not empty.
 
 */
 -- DropForeignKey
@@ -17,6 +18,9 @@ ALTER TABLE "Service" DROP CONSTRAINT "Service_barbershopId_fkey";
 ALTER TABLE "Booking" DROP COLUMN "barbershopId",
 ADD COLUMN     "babershopId" TEXT NOT NULL,
 ADD COLUMN     "status" TEXT NOT NULL;
+
+-- AlterTable
+ALTER TABLE "Service" ADD COLUMN     "imageUrl" TEXT NOT NULL;
 
 -- DropTable
 DROP TABLE "BarberShop";
